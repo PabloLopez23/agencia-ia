@@ -115,12 +115,12 @@ a {
 }
 
 .nav-links a,
-.footer a {
+.contact-link {
   transition: color 180ms ease;
 }
 
 .nav-links a:hover,
-.footer a:hover {
+.contact-link:hover {
   color: var(--cyan-2);
 }
 
@@ -525,14 +525,60 @@ h3 {
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 24px;
   padding: 28px 0 36px;
   border-top: 1px solid var(--line);
   color: var(--muted);
 }
 
 .footer strong {
+  flex: 0 0 auto;
   color: var(--text);
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.contact-link {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 12px;
+  border: 1px solid rgba(245, 247, 250, 0.13);
+  border-radius: 8px;
+  background: rgba(245, 247, 250, 0.055);
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  color: currentColor;
+  fill: currentColor;
+}
+
+.contact-link-facebook {
+  color: #7fb4ff;
+}
+
+.contact-link-instagram {
+  color: #ff7ac8;
+}
+
+.contact-link-whatsapp {
+  color: #61f19a;
+}
+
+.contact-link-gmail {
+  color: #ffb15f;
 }
 
 @keyframes floatPanel {
@@ -685,6 +731,15 @@ h3 {
   .footer {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .contact-links,
+  .contact-link {
+    width: 100%;
+  }
+
+  .contact-links {
+    justify-content: flex-start;
   }
 }
 
