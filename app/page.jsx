@@ -143,8 +143,17 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <section className="hero section-shell" id="inicio">
-          <div className="hero-copy">
+        <section className="hero" id="inicio">
+          <Image
+            className="hero-bg-image"
+            src="/tito-space-bg.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+          />
+          <div className="hero-inner section-shell">
+            <div className="hero-copy">
             <p className="eyebrow">Agencia digital con IA aplicada</p>
             <h1>Soluciones digitales con IA para hacer crecer tu negocio</h1>
             <p className="hero-subtitle">
@@ -165,31 +174,6 @@ export default function Home() {
               <span>Diseño premium</span>
               <span>Soluciones simples</span>
             </div>
-          </div>
-
-          <div className="hero-visual" aria-hidden="true">
-            <Image
-              src="/tito-ai-hero.png"
-              alt=""
-              fill
-              priority
-              sizes="(max-width: 900px) 100vw, 48vw"
-            />
-            <div className="visual-logo-card">
-              <Image
-                src="/tito-logo-square.png"
-                alt="Tito Agencia de IA"
-                width={616}
-                height={616}
-              />
-            </div>
-            <div className="floating-panel panel-one">
-              <span>Bot IA</span>
-              <strong>24/7</strong>
-            </div>
-            <div className="floating-panel panel-two">
-              <span>Landing</span>
-              <strong>Lista para vender</strong>
             </div>
           </div>
         </section>
