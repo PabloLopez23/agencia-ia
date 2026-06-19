@@ -1,14 +1,12 @@
 import Image from "next/image";
-
-const whatsappUrl =
-  "https://wa.me/543794399803?text=Hola%20Tito%20Agencia%20de%20IA%2C%20quiero%20consultar%20por%20un%20servicio";
+import { siteConfig } from "../lib/site";
 
 export default function Header() {
   return (
     <header className="site-header">
       <a className="brand" href="#inicio" aria-label="Ir al inicio">
         <span className="brand-mark">
-          <Image src="/tito-logo-square.png" alt="" fill sizes="48px" />
+          <Image src="/tito-logo-square.webp" alt="" fill sizes="48px" />
         </span>
         <span>Tito Agencia de IA</span>
       </a>
@@ -20,7 +18,7 @@ export default function Header() {
         <a href="#beneficios">Beneficios</a>
       </nav>
 
-      <a className="header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">
+      <a className="header-cta" href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">
         WhatsApp
       </a>
     </header>

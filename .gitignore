@@ -3,9 +3,10 @@ node_modules
 out
 dist
 .env*
-next-dev.log
-next-dev.err.log
-next-dev.pid
+.asset-backups/
+next-dev*.log
+next-dev*.err.log
+next-dev*.pid
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

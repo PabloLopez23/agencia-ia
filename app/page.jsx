@@ -1,13 +1,15 @@
 import Image from "next/image";
 import Header from "../components/Header";
 import SectionHeader from "../components/SectionHeader";
+import { siteConfig } from "../lib/site";
 
-const whatsappUrl =
-  "https://wa.me/543794399803?text=Hola%20Tito%20Agencia%20de%20IA%2C%20quiero%20consultar%20por%20un%20servicio";
-const whatsappDisplay = "+54 9 3794 39-9803";
-const emailAddress = "titoagenciaia@gmail.com";
-const facebookUrl = "https://www.facebook.com/profile.php?id=61590271606870";
-const instagramUrl = "https://www.instagram.com/titoagenciaia/";
+const {
+  whatsappUrl,
+  whatsappDisplay,
+  email: emailAddress,
+  facebookUrl,
+  instagramUrl
+} = siteConfig;
 
 const contactLinks = [
   {
@@ -87,11 +89,11 @@ const steps = [
     text: "Entendemos qué vendés, qué problema querés resolver y qué resultado necesitás."
   },
   {
-    title: "Creamos una solucion rapida",
+    title: "Creamos una solución rápida",
     text: "Armamos una primera versión funcional, clara y enfocada en el uso real."
   },
   {
-    title: "La probas y la ajustamos",
+    title: "La probás y la ajustamos",
     text: "Revisamos juntos, corregimos lo necesario y dejamos todo listo para usar."
   }
 ];
@@ -103,6 +105,29 @@ const benefits = [
   "Diseño profesional",
   "IA aplicada a negocios reales"
 ];
+
+const businessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: siteConfig.name,
+  description: siteConfig.description,
+  url: siteConfig.url,
+  image: `${siteConfig.url}/tito-space-bg.webp`,
+  email: siteConfig.email,
+  telephone: siteConfig.whatsappPhone,
+  areaServed: "Argentina",
+  priceRange: "$$",
+  sameAs: [siteConfig.facebookUrl, siteConfig.instagramUrl],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      telephone: siteConfig.whatsappPhone,
+      url: siteConfig.whatsappUrl,
+      availableLanguage: "es"
+    }
+  ]
+};
 
 function ContactIcon({ name }) {
   if (name === "facebook") {
@@ -138,15 +163,43 @@ function ContactIcon({ name }) {
   );
 }
 
+function FloatingWhatsAppButton() {
+  return (
+    <a
+      className="floating-whatsapp"
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Enviar mensaje por WhatsApp a ${siteConfig.name}`}
+    >
+      <Image
+        className="floating-whatsapp-icon"
+        src="/whatsapp-floating-icon.avif"
+        alt=""
+        width={68}
+        height={68}
+        sizes="68px"
+      />
+      <span>WhatsApp</span>
+    </a>
+  );
+}
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(businessJsonLd).replace(/</g, "\\u003c")
+        }}
+      />
       <Header />
       <main>
         <section className="hero" id="inicio">
           <Image
             className="hero-bg-image"
-            src="/tito-space-bg.png"
+            src="/tito-space-bg.webp"
             alt=""
             fill
             priority
@@ -162,7 +215,7 @@ export default function Home() {
               fortuna.
             </p>
             <div className="hero-actions">
-              <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
+              <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 Hablar por WhatsApp
               </a>
               <a className="btn btn-secondary" href="#servicios">
@@ -170,7 +223,7 @@ export default function Home() {
               </a>
             </div>
             <div className="hero-stats" aria-label="Puntos fuertes">
-              <span>IA practica</span>
+              <span>IA práctica</span>
               <span>Diseño premium</span>
               <span>Soluciones simples</span>
             </div>
@@ -245,7 +298,7 @@ export default function Home() {
             <p className="eyebrow">Empecemos por algo simple</p>
             <h2>Contame qué querés mejorar y vemos una solución rápida con IA.</h2>
           </div>
-          <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
+          <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
             Hablar por WhatsApp
           </a>
         </section>
@@ -259,7 +312,7 @@ export default function Home() {
               className={`contact-link contact-link-${item.icon}`}
               href={item.href}
               target={item.external ? "_blank" : undefined}
-              rel={item.external ? "noreferrer" : undefined}
+              rel={item.external ? "noopener noreferrer" : undefined}
               aria-label={item.ariaLabel ?? item.label}
               key={item.label}
             >
@@ -269,6 +322,7 @@ export default function Home() {
           ))}
         </div>
       </footer>
+      <FloatingWhatsAppButton />
     </>
   );
 }
