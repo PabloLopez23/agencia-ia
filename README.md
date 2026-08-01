@@ -1,18 +1,48 @@
-# Tito Agencia de IA
+# Tito Agencia IA
 
-Landing page provisoria local para vender servicios digitales con IA.
+Sitio oficial de **Tito Agencia IA**, un emprendimiento enfocado en desarrollo web, automatización de procesos e integración de inteligencia artificial para negocios.
 
-## Correr localmente
+## Objetivo
+
+Presentar de forma clara los servicios de la agencia, explicar posibles casos de uso de la automatización y facilitar el contacto con potenciales clientes mediante una experiencia rápida y responsive.
+
+## Características
+
+- Landing responsive optimizada para computadoras, tablets y celulares.
+- Presentación de servicios y soluciones con inteligencia artificial.
+- Llamados a la acción y canales de contacto.
+- SEO técnico y metadatos para redes sociales.
+- Imágenes y recursos optimizados para mejorar el rendimiento.
+- Configuración de producción y despliegue continuo en Netlify.
+
+## Tecnologías
+
+- Next.js 16
+- React 19
+- JavaScript
+- CSS
+- Netlify
+
+## Desarrollo local
 
 ```bash
 npm install
 npm run dev
 ```
 
-Después abrí `http://localhost:3000`.
+Abrir [http://localhost:3000](http://localhost:3000).
 
-## Scripts
+## Verificación
 
-- `npm run dev`: inicia el servidor local de Next.js.
-- `npm run build`: genera una build de producción.
-- `npm run start`: corre la build de producción.
+```bash
+npm run lint
+npm run build
+```
+
+## Sitio publicado
+
+[titoagenciaia.netlify.app](https://titoagenciaia.netlify.app/)
+
+## Autor
+
+Desarrollado por [Pablo Lopez](https://github.com/PabloLopez23).
